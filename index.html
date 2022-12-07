@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="top">
+      <p>ICICI Bank</p>
+      <p>XXXXXX65</p>
+    </div>
+
+    <div class="header">
+      <p>Sending &#8377; 100.00</p>
+      <p id="recipient">
+        To: Vivek Kumar Singh <i class="fa-solid fa-chevron-down"></i>
+      </p>
+    </div>
+
+    <div class="body">
+      <p>ENTER 4-DIGIT UPI PIN</p>
+      <div>
+        <input type="password" maxlength="4" id="input" />
+      </div>
+      <div class="input-border">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="toggleText">
+        <i class="fa-solid fa-eye"></i>
+        <p onclick="togglePin()" id="toggleText">SHOW</p>
+      </div>
+      <p>
+        <i class="fa-solid fa-circle-info"></i> You are transferring money from
+        your account to Vivek Kumar Singh
+      </p>
+    </div>
+
+    <div class="keypad">
+      <div>
+        <button value="1">1</button>
+        <button value="2">2</button>
+        <button value="3">3</button>
+      </div>
+      <div>
+        <button value="4">4</button>
+        <button value="5">5</button>
+        <button value="6">6</button>
+      </div>
+      <div>
+        <button value="7">7</button>
+        <button value="8">8</button>
+        <button value="9">9</button>
+      </div>
+      <div>
+        <i
+          class="fa-solid fa-delete-left"
+          onclick="document.getElementById('input').value = ''"
+        ></i>
+        <button value="0">0</button>
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
