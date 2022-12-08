@@ -2,7 +2,6 @@ let btn = document.querySelectorAll(".keypad > div > button");
 let inp = document.querySelector("#input");
 const borderIds = ["border1", "border2", "border3", "border4"];
 let borders = borderIds.map((id) => document.getElementById(id));
-
 const text = document.getElementById("recipient");
 const limit = 13;
 const truncated = text.innerText.substring(0, limit) + "...";
@@ -31,17 +30,16 @@ btn.forEach((v) => {
 });
 
 function togglePin() {
-  let x = document.getElementById("input");
-  if (x.type === "password") {
-    x.type = "text";
+  if (inp.type === "password") {
+    inp.type = "text";
     document.getElementById("toggleText").childNodes[0].textContent = "HIDE";
-    document.getElementById("input").style.fontSize = "24px";
-    document.getElementById("input").style.marginBottom = "14px";
+    inp.style.fontSize = "24px";
+    inp.style.marginBottom = "14px";
   } else {
-    x.type = "password";
+    inp.type = "password";
     document.getElementById("toggleText").childNodes[0].textContent = "SHOW";
-    document.getElementById("input").style.fontSize = "36px";
-    document.getElementById("input").style.marginBottom = "0";
+    inp.style.fontSize = "36px";
+    inp.style.marginBottom = "0";
   }
 }
 
