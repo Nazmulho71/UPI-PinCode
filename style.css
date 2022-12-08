@@ -55,25 +55,18 @@ body {
 }
 
 .body input {
-  /* width: 25%; */
   width: 90%;
   margin: 0 10px;
-  letter-spacing: 18vw;
+  letter-spacing: 19vw;
   font-size: 36px;
   font-weight: bold;
   padding-left: 10vw;
   border-top: 0;
   border-right: 0;
   border-bottom: 0;
-  /* border-bottom: 3px solid lightgray; */
   border-left: 0;
   outline: none;
-  text-align: center;
 }
-
-/* .body input:focus {
-  border-bottom: 3px solid gray;
-} */
 
 .body input:first-child {
   margin-left: 0;

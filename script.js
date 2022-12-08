@@ -11,10 +11,17 @@ function togglePin() {
   if (x.type === "password") {
     x.type = "text";
     document.getElementById("toggleText").childNodes[0].textContent = "HIDE";
-    console.log("SHOW");
+    document.getElementById("input").style.fontSize = "24px";
+    document.getElementById("input").style.marginBottom = "14px";
   } else {
     x.type = "password";
     document.getElementById("toggleText").childNodes[0].textContent = "SHOW";
-    console.log("HIDE");
+    document.getElementById("input").style.fontSize = "36px";
+    document.getElementById("input").style.marginBottom = "0";
   }
+}
+
+function deleteInput() {
+  let input = document.getElementById("input");
+  input.value = input.value.substring(0, input.value.length - 1);
 }
