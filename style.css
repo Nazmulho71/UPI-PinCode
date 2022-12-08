@@ -21,8 +21,17 @@ body {
   padding: 10px;
 }
 
-.header p:first-child {
+.header > div {
+  display: flex;
+  align-items: center;
+}
+
+.header > p:first-child {
   font-size: 20px;
+}
+
+.header > div p {
+  margin-right: 5px;
 }
 
 .body {

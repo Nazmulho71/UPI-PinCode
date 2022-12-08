@@ -1,10 +1,34 @@
 let btn = document.querySelectorAll(".keypad > div > button");
-let inp = document.querySelector("input");
-btn.forEach((v) => {
-  v.addEventListener("click", () => {
-    inp.value += v.innerText;
+let inp = document.querySelector("#input");
+const borderIds = ["border1", "border2", "border3", "border4"];
+let borders = borderIds.map((id) => document.getElementById(id));
+
+const text = document.getElementById("recipient");
+const limit = 13;
+const truncated = text.innerText.substring(0, limit) + "...";
+text.innerText = truncated;
+
+if (inp.value.length >= 4) {
+  null;
+} else {
+  btn.forEach((v) => {
+    v.addEventListener("click", () => {
+      inp.value += v.innerText;
+
+      if (inp.value != null) {
+        for (let i = 1; i <= 4; i++) {
+          const borders = document.getElementById(`border${i}`);
+
+          if (inp.value.length === i) {
+            borders.style.backgroundColor = "gray";
+          } else {
+            borders.style.backgroundColor = "lightgray";
+          }
+        }
+      }
+    });
   });
-});
+}
 
 function togglePin() {
   let x = document.getElementById("input");
@@ -22,6 +46,8 @@ function togglePin() {
 }
 
 function deleteInput() {
-  let input = document.getElementById("input");
-  input.value = input.value.substring(0, input.value.length - 1);
+  inp.value = inp.value.substring(0, inp.value.length - 1);
+  for (let border of borders) {
+    border.style.backgroundColor = "lightgray";
+  }
 }
