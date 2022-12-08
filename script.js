@@ -8,11 +8,11 @@ const limit = 13;
 const truncated = text.innerText.substring(0, limit) + "...";
 text.innerText = truncated;
 
-if (inp.value.length >= 4) {
-  null;
-} else {
-  btn.forEach((v) => {
-    v.addEventListener("click", () => {
+btn.forEach((v) => {
+  v.addEventListener("click", () => {
+    if (inp.value.length === 4) {
+      null;
+    } else {
       inp.value += v.innerText;
 
       if (inp.value != null) {
@@ -26,9 +26,9 @@ if (inp.value.length >= 4) {
           }
         }
       }
-    });
+    }
   });
-}
+});
 
 function togglePin() {
   let x = document.getElementById("input");
