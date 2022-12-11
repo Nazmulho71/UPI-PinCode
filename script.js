@@ -1,51 +1,62 @@
 let btn = document.querySelectorAll(".keypad > div > button");
 let inp = document.querySelector("#input");
-const borderIds = ["border1", "border2", "border3", "border4"];
+let length = 1;
+const borderIds = ["border2", "border3", "border4", "border5"];
 let borders = borderIds.map((id) => document.getElementById(id));
 const text = document.getElementById("recipient");
 const limit = 13;
 const truncated = text.innerText.substring(0, limit) + "...";
 text.innerText = truncated;
+const toggle = document.getElementById("toggleText");
+let pText = [];
 
 btn.forEach((v) => {
   v.addEventListener("click", () => {
-    if (inp.value.length === 4) {
-      null;
+    if (length > 4) {
+      return;
     } else {
-      inp.value += v.innerText;
+      let elem = document.createElement("p");
+      elem.classList.add("code");
+      elem.innerHTML = v.innerText;
+      inp.appendChild(elem);
+      length++;
 
-      if (inp.value != null) {
-        for (let i = 1; i <= 4; i++) {
-          const borders = document.getElementById(`border${i}`);
+      for (let i = 2; i <= 5; i++) {
+        const borders = document.getElementById(`border${i}`);
 
-          if (inp.value.length === i) {
-            borders.style.backgroundColor = "gray";
-          } else {
-            borders.style.backgroundColor = "lightgray";
-          }
+        if (length === i) {
+          borders.style.backgroundColor = "gray";
+        } else {
+          borders.style.backgroundColor = "lightgray";
         }
       }
     }
   });
 });
 
-function togglePin() {
-  if (inp.type === "password") {
-    inp.type = "text";
-    document.getElementById("toggleText").childNodes[0].textContent = "HIDE";
-    inp.style.fontSize = "24px";
-    inp.style.marginBottom = "14px";
-  } else {
-    inp.type = "password";
-    document.getElementById("toggleText").childNodes[0].textContent = "SHOW";
-    inp.style.fontSize = "36px";
-    inp.style.marginBottom = "0";
+function deleteInput() {
+  let elem = document.querySelector("#input > p:last-child");
+  elem.parentNode.removeChild(elem);
+  length--;
+
+  for (let border of borders) {
+    border.style.backgroundColor = "lightgray";
   }
 }
 
-function deleteInput() {
-  inp.value = inp.value.substring(0, inp.value.length - 1);
-  for (let border of borders) {
-    border.style.backgroundColor = "lightgray";
+function hideShowP() {
+  const pTags = inp.getElementsByClassName("code");
+
+  if (pTags[0].innerText === "•") {
+    for (let i = 0; i < pTags.length; i++) {
+      pTags[i].innerText = pText[i];
+    }
+    toggle.innerText = "HIDE";
+  } else {
+    for (let i = 0; i < pTags.length; i++) {
+      pText[i] = pTags[i].innerText;
+      pTags[i].innerText = "•";
+    }
+    toggle.innerText = "SHOW";
   }
 }

@@ -30,18 +30,18 @@
 
     <div class="body">
       <p>ENTER 4-DIGIT UPI PIN</p>
-      <div>
-        <input type="password" maxlength="4" id="input" />
+      <div class="input-number">
+        <div id="input"></div>
       </div>
       <div class="input-border">
-        <div id="border1"></div>
         <div id="border2"></div>
         <div id="border3"></div>
         <div id="border4"></div>
+        <div id="border5"></div>
       </div>
       <div class="toggleText">
         <i class="fa-solid fa-eye"></i>
-        <p onclick="togglePin()" id="toggleText">SHOW</p>
+        <p onclick="hideShowP()" id="toggleText">HIDE</p>
       </div>
       <p>
         <i class="fa-solid fa-circle-info"></i> You are transferring money from

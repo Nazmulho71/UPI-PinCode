@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="myDiv">
+      <p>This is the first paragraph.</p>
+      <p>This is the second paragraph.</p>
+      <p>This is the third paragraph.</p>
+      <p>This is the fourth paragraph.</p>
+    </div>
+
+    <button id="showHideButton">Show/Hide</button>
+
+    <script>
+      const myDiv = document.getElementById("myDiv");
+
+      let pText = [];
+
+      function hideShowP() {
+        const pTags = myDiv.querySelectorAll("p");
+
+        if (pTags[0].innerText === "•") {
+          for (let i = 0; i < pTags.length; i++) {
+            pTags[i].innerText = pText[i];
+          }
+        } else {
+          for (let i = 0; i < pTags.length; i++) {
+            pText[i] = pTags[i].innerText;
+            pTags[i].innerText = "•";
+          }
+        }
+      }
+
+      const btn = document.getElementById("showHideButton");
+      btn.addEventListener("click", hideShowP);
+    </script>
+  </body>
+</html>
